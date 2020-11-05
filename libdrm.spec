@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x0C74F35979C486BE (airlied@linux.ie)
 #
 Name     : libdrm
-Version  : 2.4.102
-Release  : 69
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.102.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.102.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.102.tar.xz.sig
+Version  : 2.4.103
+Release  : 70
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.103.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.103.tar.xz
+Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.103.tar.xz.sig
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -32,7 +32,6 @@ BuildRequires : pkgconfig(cairo)
 BuildRequires : pkgconfig(pciaccess)
 BuildRequires : pkgconfig(valgrind)
 BuildRequires : valgrind
-Patch1: log2int.patch
 
 %description
 What are these headers ?
@@ -98,11 +97,10 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.102
-cd %{_builddir}/libdrm-2.4.102
-%patch1 -p1
+%setup -q -n libdrm-2.4.103
+cd %{_builddir}/libdrm-2.4.103
 pushd ..
-cp -a libdrm-2.4.102 build32
+cp -a libdrm-2.4.103 build32
 popd
 
 %build
@@ -110,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1590582529
+export SOURCE_DATE_EPOCH=1604613317
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
