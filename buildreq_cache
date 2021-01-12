@@ -1,6 +1,6 @@
-2.4.103
+2.4.104
 cairo-dev
-libxslt-bin
+docutils
 pkgconfig(32atomic_ops)
 pkgconfig(32pciaccess)
 pkgconfig(atomic_ops)
