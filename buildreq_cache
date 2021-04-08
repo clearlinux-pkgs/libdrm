@@ -1,6 +1,5 @@
-2.4.104
+2.4.105
 cairo-dev
-docutils
 pkgconfig(32atomic_ops)
 pkgconfig(32pciaccess)
 pkgconfig(atomic_ops)
