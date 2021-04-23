@@ -12,9 +12,11 @@ Group    : Development/Tools
 License  : MIT
 Requires: libdrm-data = %{version}-%{release}
 Requires: libdrm-lib = %{version}-%{release}
+Requires: libdrm-man = %{version}-%{release}
 BuildRequires : buildreq-meson
 BuildRequires : cairo-dev
 BuildRequires : docbook-xml
+BuildRequires : docutils
 BuildRequires : gcc-dev32
 BuildRequires : gcc-libgcc32
 BuildRequires : gcc-libstdc++32
@@ -81,6 +83,14 @@ Requires: libdrm-data = %{version}-%{release}
 
 %description lib32
 lib32 components for the libdrm package.
+
+
+%package man
+Summary: man components for the libdrm package.
+Group: Default
+
+%description man
+man components for the libdrm package.
 
 
 %prep
@@ -203,6 +213,9 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib64/pkgconfig/libdrm_nouveau.pc
 /usr/lib64/pkgconfig/libdrm_radeon.pc
 /usr/lib64/pkgconfig/libkms.pc
+/usr/share/man/man3/drmAvailable.3
+/usr/share/man/man3/drmHandleEvent.3
+/usr/share/man/man3/drmModeGetResources.3
 
 %files dev32
 %defattr(-,root,root,-)
@@ -254,3 +267,9 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib32/libdrm_radeon.so.1.0.1
 /usr/lib32/libkms.so.1
 /usr/lib32/libkms.so.1.0.0
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man7/drm-kms.7
+/usr/share/man/man7/drm-memory.7
+/usr/share/man/man7/drm.7
