@@ -6,7 +6,7 @@
 #
 Name     : libdrm
 Version  : 2.4.109
-Release  : 79
+Release  : 80
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.109.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.109.tar.xz
 Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.109.tar.xz.sig
