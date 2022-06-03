@@ -375,6 +375,7 @@ libdrm_nouveau.so.2:nouveau_bufctx_mthd
 libdrm_nouveau.so.2:nouveau_bufctx_new
 libdrm_nouveau.so.2:nouveau_bufctx_refn
 libdrm_nouveau.so.2:nouveau_bufctx_reset
+libdrm_nouveau.so.2:nouveau_check_dead_channel
 libdrm_nouveau.so.2:nouveau_client_del
 libdrm_nouveau.so.2:nouveau_client_new
 libdrm_nouveau.so.2:nouveau_device_del
@@ -446,11 +447,3 @@ libdrm_radeon.so.1:radeon_surface_best
 libdrm_radeon.so.1:radeon_surface_init
 libdrm_radeon.so.1:radeon_surface_manager_free
 libdrm_radeon.so.1:radeon_surface_manager_new
-libkms.so.1:kms_bo_create
-libkms.so.1:kms_bo_destroy
-libkms.so.1:kms_bo_get_prop
-libkms.so.1:kms_bo_map
-libkms.so.1:kms_bo_unmap
-libkms.so.1:kms_create
-libkms.so.1:kms_destroy
-libkms.so.1:kms_get_prop
