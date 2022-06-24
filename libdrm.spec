@@ -6,7 +6,7 @@
 #
 Name     : libdrm
 Version  : 2.4.111
-Release  : 83
+Release  : 84
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.111.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.111.tar.xz
 Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.111.tar.xz.sig
@@ -14,7 +14,6 @@ Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
 Requires: libdrm-data = %{version}-%{release}
-Requires: libdrm-filemap = %{version}-%{release}
 Requires: libdrm-lib = %{version}-%{release}
 Requires: libdrm-man = %{version}-%{release}
 BuildRequires : buildreq-meson
@@ -71,19 +70,10 @@ Requires: libdrm-dev = %{version}-%{release}
 dev32 components for the libdrm package.
 
 
-%package filemap
-Summary: filemap components for the libdrm package.
-Group: Default
-
-%description filemap
-filemap components for the libdrm package.
-
-
 %package lib
 Summary: lib components for the libdrm package.
 Group: Libraries
 Requires: libdrm-data = %{version}-%{release}
-Requires: libdrm-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libdrm package.
@@ -121,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654274178
+export SOURCE_DATE_EPOCH=1656045945
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -172,7 +162,7 @@ fi
 popd
 DESTDIR=%{buildroot}-v3 ninja -C builddiravx2 install
 DESTDIR=%{buildroot} ninja -C builddir install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -258,12 +248,23 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib32/pkgconfig/libdrm_nouveau.pc
 /usr/lib32/pkgconfig/libdrm_radeon.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-libdrm
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm.so.2
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm.so.2.4.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_amdgpu.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_amdgpu.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_amdgpu.so.1.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_intel.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_intel.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_intel.so.1.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_nouveau.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_nouveau.so.2
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_nouveau.so.2.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_radeon.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_radeon.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdrm_radeon.so.1.0.1
 /usr/lib64/libdrm.so.2
 /usr/lib64/libdrm.so.2.4.0
 /usr/lib64/libdrm_amdgpu.so.1
@@ -274,7 +275,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib64/libdrm_nouveau.so.2.0.0
 /usr/lib64/libdrm_radeon.so.1
 /usr/lib64/libdrm_radeon.so.1.0.1
-/usr/share/clear/optimized-elf/lib*
 
 %files lib32
 %defattr(-,root,root,-)
