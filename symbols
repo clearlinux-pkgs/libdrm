@@ -105,6 +105,7 @@ libdrm.so.2:drmModeAtomicGetCursor
 libdrm.so.2:drmModeAtomicMerge
 libdrm.so.2:drmModeAtomicSetCursor
 libdrm.so.2:drmModeAttachMode
+libdrm.so.2:drmModeConnectorGetPossibleCrtcs
 libdrm.so.2:drmModeConnectorSetProperty
 libdrm.so.2:drmModeCreateLease
 libdrm.so.2:drmModeCreatePropertyBlob
@@ -128,6 +129,7 @@ libdrm.so.2:drmModeFreePropertyBlob
 libdrm.so.2:drmModeFreeResources
 libdrm.so.2:drmModeGetConnector
 libdrm.so.2:drmModeGetConnectorCurrent
+libdrm.so.2:drmModeGetConnectorTypeName
 libdrm.so.2:drmModeGetCrtc
 libdrm.so.2:drmModeGetEncoder
 libdrm.so.2:drmModeGetFB
