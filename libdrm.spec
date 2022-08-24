@@ -6,7 +6,7 @@
 #
 Name     : libdrm
 Version  : 2.4.112
-Release  : 89
+Release  : 90
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz
 Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz.sig
@@ -32,6 +32,7 @@ BuildRequires : pkgconfig(pciaccess)
 BuildRequires : pkgconfig(valgrind)
 BuildRequires : pypi-docutils
 BuildRequires : valgrind
+Patch1: backport-pciids.patch
 
 %description
 What are these headers ?
@@ -99,6 +100,7 @@ man components for the libdrm package.
 %prep
 %setup -q -n libdrm-2.4.112
 cd %{_builddir}/libdrm-2.4.112
+%patch1 -p1
 pushd ..
 cp -a libdrm-2.4.112 build32
 popd
@@ -111,7 +113,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1657150120
+export SOURCE_DATE_EPOCH=1661377616
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

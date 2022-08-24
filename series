@@ -1,2 +1,3 @@
 #log2int.patch
 #0001-Revert-meson-use-library-instead-of-shared_library.patch
+backport-pciids.patch
