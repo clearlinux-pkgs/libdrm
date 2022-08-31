@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x0FDE7BE0E88F5E48 (contact@emersion.fr)
 #
 Name     : libdrm
-Version  : 2.4.112
-Release  : 90
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.112.tar.xz.sig
+Version  : 2.4.113
+Release  : 91
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
+Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz.sig
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -32,7 +32,6 @@ BuildRequires : pkgconfig(pciaccess)
 BuildRequires : pkgconfig(valgrind)
 BuildRequires : pypi-docutils
 BuildRequires : valgrind
-Patch1: backport-pciids.patch
 
 %description
 What are these headers ?
@@ -98,14 +97,13 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.112
-cd %{_builddir}/libdrm-2.4.112
-%patch1 -p1
+%setup -q -n libdrm-2.4.113
+cd %{_builddir}/libdrm-2.4.113
 pushd ..
-cp -a libdrm-2.4.112 build32
+cp -a libdrm-2.4.113 build32
 popd
 pushd ..
-cp -a libdrm-2.4.112 buildavx2
+cp -a libdrm-2.4.113 buildavx2
 popd
 
 %build
@@ -113,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1661377616
+export SOURCE_DATE_EPOCH=1661964955
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -132,8 +130,8 @@ export ASFLAGS="${ASFLAGS}${ASFLAGS:+ }--32"
 export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32 -mstackrealign"
 export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32 -mstackrealign"
 export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32 -mstackrealign"
-meson --libdir=lib32 --prefix=/usr --buildtype=plain -Dudev=true -Dcairo-tests=false \
--Dvalgrind=false builddir
+meson --libdir=lib32 --prefix=/usr --buildtype=plain -Dudev=true -Dcairo-tests=disabled \
+-Dvalgrind=disabled builddir
 ninja -v -C builddir
 popd
 

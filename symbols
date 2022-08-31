@@ -66,6 +66,7 @@ libdrm.so.2:drmGetDevices2
 libdrm.so.2:drmGetEntry
 libdrm.so.2:drmGetFormatModifierName
 libdrm.so.2:drmGetFormatModifierVendor
+libdrm.so.2:drmGetFormatName
 libdrm.so.2:drmGetHashTable
 libdrm.so.2:drmGetInterruptFromBusID
 libdrm.so.2:drmGetLibVersion
