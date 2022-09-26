@@ -6,7 +6,7 @@
 #
 Name     : libdrm
 Version  : 2.4.113
-Release  : 91
+Release  : 92
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
 Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz.sig
