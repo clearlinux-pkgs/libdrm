@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x0FDE7BE0E88F5E48 (contact@emersion.fr)
 #
 Name     : libdrm
-Version  : 2.4.113
-Release  : 92
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.113.tar.xz.sig
+Version  : 2.4.114
+Release  : 93
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz
+Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz.sig
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -97,13 +97,13 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.113
-cd %{_builddir}/libdrm-2.4.113
+%setup -q -n libdrm-2.4.114
+cd %{_builddir}/libdrm-2.4.114
 pushd ..
-cp -a libdrm-2.4.113 build32
+cp -a libdrm-2.4.114 build32
 popd
 pushd ..
-cp -a libdrm-2.4.113 buildavx2
+cp -a libdrm-2.4.114 buildavx2
 popd
 
 %build
@@ -111,15 +111,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1661964955
+export SOURCE_DATE_EPOCH=1667483760
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dudev=true  builddir
 ninja -v -C builddir
 CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dudev=true  builddiravx2
