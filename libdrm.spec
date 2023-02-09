@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x0FDE7BE0E88F5E48 (contact@emersion.fr)
 #
 Name     : libdrm
-Version  : 2.4.114
-Release  : 94
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.114.tar.xz.sig
+Version  : 2.4.115
+Release  : 95
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
+Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz.sig
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -32,6 +32,9 @@ BuildRequires : pkgconfig(pciaccess)
 BuildRequires : pkgconfig(valgrind)
 BuildRequires : pypi-docutils
 BuildRequires : valgrind
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 What are these headers ?
@@ -97,13 +100,13 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.114
-cd %{_builddir}/libdrm-2.4.114
+%setup -q -n libdrm-2.4.115
+cd %{_builddir}/libdrm-2.4.115
 pushd ..
-cp -a libdrm-2.4.114 build32
+cp -a libdrm-2.4.115 build32
 popd
 pushd ..
-cp -a libdrm-2.4.114 buildavx2
+cp -a libdrm-2.4.115 buildavx2
 popd
 
 %build
@@ -111,15 +114,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667483760
+export SOURCE_DATE_EPOCH=1675965135
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dudev=true  builddir
 ninja -v -C builddir
 CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dudev=true  builddiravx2
