@@ -7,7 +7,7 @@
 #
 Name     : libdrm
 Version  : 2.4.115
-Release  : 96
+Release  : 97
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
 Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz.sig
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682994404
+export SOURCE_DATE_EPOCH=1685637005
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -177,11 +177,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdrm.so
-/V3/usr/lib64/libdrm_amdgpu.so
-/V3/usr/lib64/libdrm_intel.so
-/V3/usr/lib64/libdrm_nouveau.so
-/V3/usr/lib64/libdrm_radeon.so
 /usr/include/libdrm/amdgpu.h
 /usr/include/libdrm/amdgpu_drm.h
 /usr/include/libdrm/drm.h
@@ -259,15 +254,10 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdrm.so.2
 /V3/usr/lib64/libdrm.so.2.4.0
-/V3/usr/lib64/libdrm_amdgpu.so.1
 /V3/usr/lib64/libdrm_amdgpu.so.1.0.0
-/V3/usr/lib64/libdrm_intel.so.1
 /V3/usr/lib64/libdrm_intel.so.1.0.0
-/V3/usr/lib64/libdrm_nouveau.so.2
 /V3/usr/lib64/libdrm_nouveau.so.2.0.0
-/V3/usr/lib64/libdrm_radeon.so.1
 /V3/usr/lib64/libdrm_radeon.so.1.0.1
 /usr/lib64/libdrm.so.2
 /usr/lib64/libdrm.so.2.4.0
