@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x0FDE7BE0E88F5E48 (contact@emersion.fr)
 #
 Name     : libdrm
-Version  : 2.4.115
-Release  : 97
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz.sig
+Version  : 2.4.116
+Release  : 98
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.116.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.116.tar.xz
+Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.116.tar.xz.sig
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -101,13 +101,13 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.115
-cd %{_builddir}/libdrm-2.4.115
+%setup -q -n libdrm-2.4.116
+cd %{_builddir}/libdrm-2.4.116
 pushd ..
-cp -a libdrm-2.4.115 build32
+cp -a libdrm-2.4.116 build32
 popd
 pushd ..
-cp -a libdrm-2.4.115 buildavx2
+cp -a libdrm-2.4.116 buildavx2
 popd
 
 %build
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685637005
+export SOURCE_DATE_EPOCH=1692818188
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
