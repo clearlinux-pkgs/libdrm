@@ -1,5 +1,5 @@
 PKG_NAME := libdrm
-URL = https://dri.freedesktop.org/libdrm/libdrm-2.4.116.tar.xz
+URL = https://dri.freedesktop.org/libdrm/libdrm-2.4.117.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
