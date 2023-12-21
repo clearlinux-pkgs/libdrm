@@ -5,14 +5,11 @@
 # autospec version: v3
 # autospec commit: c1050fe
 #
-# Source0 file verified with key 0x0FDE7BE0E88F5E48 (contact@emersion.fr)
-#
 Name     : libdrm
-Version  : 2.4.118
-Release  : 101
-URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.118.tar.xz
-Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.118.tar.xz
-Source1  : https://dri.freedesktop.org/libdrm/libdrm-2.4.118.tar.xz.sig
+Version  : 2.4.119
+Release  : 102
+URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.119.tar.xz
+Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.119.tar.xz
 Summary  : Userspace interface to kernel DRM services
 Group    : Development/Tools
 License  : MIT
@@ -40,10 +37,12 @@ BuildRequires : valgrind
 %define debug_package %{nil}
 
 %description
-What are these headers ?
-------------------------
-This is the canonical source of drm headers that user space should use for
-communicating with the kernel DRM subsystem.
+This is a historical description of what is now the kgsl backend
+in libdrm freedreno (before the upstream drm/msm driver).  Note
+that the kgsl backend requires the "kgsl-drm" shim driver, which
+usually is in disrepair (QCOM does not build it for android), and
+due to random differences between different downstream android
+kernel branches it may or may not work.  So YMMV.
 
 %package data
 Summary: data components for the libdrm package.
@@ -103,13 +102,13 @@ man components for the libdrm package.
 
 
 %prep
-%setup -q -n libdrm-2.4.118
-cd %{_builddir}/libdrm-2.4.118
+%setup -q -n libdrm-2.4.119
+cd %{_builddir}/libdrm-2.4.119
 pushd ..
-cp -a libdrm-2.4.118 build32
+cp -a libdrm-2.4.119 build32
 popd
 pushd ..
-cp -a libdrm-2.4.118 buildavx2
+cp -a libdrm-2.4.119 buildavx2
 popd
 
 %build
@@ -117,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702013816
+export SOURCE_DATE_EPOCH=1703171520
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
