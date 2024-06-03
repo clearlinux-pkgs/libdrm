@@ -7,7 +7,7 @@
 #
 Name     : libdrm
 Version  : 2.4.121
-Release  : 104
+Release  : 105
 URL      : https://dri.freedesktop.org/libdrm/libdrm-2.4.121.tar.xz
 Source0  : https://dri.freedesktop.org/libdrm/libdrm-2.4.121.tar.xz
 Summary  : Userspace interface to kernel DRM services
